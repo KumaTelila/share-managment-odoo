@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Root Menu -->
+    <menuitem id="menu_share_management_root" name="Share Management" sequence="10"/>
+
+    <!--Shareholders -->
+    <menuitem id="menu_share_shareholder" name="Shareholders" parent="menu_share_management_root" action="share_management.action_shareholder" sequence="10"/>
+
+    <!-- Transactions -->
+    <menuitem id="menu_share_transaction" name="Share Transactions" parent="menu_share_management_root" action="share_management.action_share_transactions" sequence="20"/>
+
+    <!-- dividend -->
+    <menuitem id="menu_share_dividend" name="Dividends" parent="menu_share_management_root" action="share_management.action_share_dividends" sequence="30"/>
+</odoo>

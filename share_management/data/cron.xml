@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="cron_compute_share_percent" model="ir.cron">
+        <field name="name">Compute Share Percentages</field>
+        <field name="model_id" ref="model_shareholder"/>
+        <field name="state">code</field>
+        <field name="code">model._compute_share_percent()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+    </record>
+</odoo>

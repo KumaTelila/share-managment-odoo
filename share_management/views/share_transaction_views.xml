@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_share_transaction_list" model="ir.ui.view">
+        <field name="name">share.transaction.list</field>
+        <field name="model">share.transaction</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="shareholder_id"/>
+                <field name="type"/>
+                <field name="quantity"/>
+                <field name="price_per_share"/>
+                <field name="amount"/>
+                <field name="receiver_id"/>
+                <field name="date"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_share_transaction_form" model="ir.ui.view">
+        <field name="name">share.transaction.form</field>
+        <field name="model">share.transaction</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="shareholder_id" options="{'no_quick_create': True}"/>
+                        <field name="type"/>
+                        <field name="quantity"/>
+                        <field name="price_per_share" invisible="type not in ['sell', 'buy']"/>
+                        <field name="amount" readonly="1" invisible="type not in ['sell', 'buy']"/>
+                        <field name="receiver_id" options="{'no_quick_create': True}" invisible="type not in ['transfer']" required="type not in ['sell', 'buy']"/>
+                        <field name="date"/>
+                    </group>
+                </sheet>
+                <chatter reload_on_follower="True"/>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_share_transactions" model="ir.actions.act_window">
+        <field name="name">Share Transactions</field>
+        <field name="res_model">share.transaction</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

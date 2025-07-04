@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_shareholder_manager,shareholder.manager,model_shareholder,share_management.group_share_manager,1,1,1,1
+access_shareholder_viewer,shareholder.viewer,model_shareholder,share_management.group_share_viewer,1,0,0,0
+access_transaction_manager,share.transaction.manager,model_share_transaction,share_management.group_share_manager,1,0,1,1
+access_transaction_viewer,share.transaction.viewer,model_share_transaction,share_management.group_share_viewer,1,0,0,0
+access_dividend_manager,share.dividend.manager,model_share_dividend,share_management.group_share_manager,1,1,1,1
+access_dividend_viewer,share.dividend.viewer,model_share_dividend,share_management.group_share_viewer,1,0,0,0

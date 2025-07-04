@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_shareholder_list" model="ir.ui.view">
+        <field name="name">shareholder.list</field>
+        <field name="model">shareholder</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="total_shares"/>
+                <field name="share_percent" widget="progressbar"/>
+                <field name="total_invested" widget="monetary"/>
+                <field name="dividend_received" widget="monetary"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_shareholder_form" model="ir.ui.view">
+        <field name="name">shareholder.form</field>
+        <field name="model">shareholder</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                        <button class="oe_stat_button"  type="object" name="action_get_share_transactions">
+                                <field string=" Shares" name="total_shares" widget="statinfo"/>
+                        </button>
+                        <button class="oe_stat_button"  type="object" name="action_get_share_transactions">
+                                <field string="% Share" name="share_percent" widget="statinfo"/>
+                        </button>
+                        <button class="oe_stat_button"  type="object" name="action_get_share_dividends">
+                                <field string=" Dividends" name="dividend_received" widget="statinfo"/>
+                        </button>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="partner_id" options="{'no_quick_create': True}"/>
+                    </group>
+                    <notebook>
+                        <page string="Transactions">
+                            <field name="transaction_ids" nolabel="1">
+                                <list>
+                                    <field name="type"/>
+                                    <field name="quantity"/>
+                                    <field name="price_per_share"/>
+                                    <field name="amount"/>
+                                    <field name="receiver_id"/>
+                                    <field name="date"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Dividends">
+                            <field name="dividend_ids" nolabel="1">
+                                <list>
+                                    <field name="amount"/>
+                                    <field name="date"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                 <chatter reload_on_follower="True"/>
+            </form>
+        </field>
+    </record>
+
+    <!-- kanban view -->
+    <record id="view_shareholder_kanban" model="ir.ui.view">
+        <field name="name">shareholder.kanban</field>
+        <field name="model">shareholder</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="o_kanban_details">
+                            <strong><field name="name"/></strong>
+                            <div>Total Shares: <field name="total_shares"/></div>
+                            <div>Share Percent: <field name="share_percent" widget="percentpie"/></div>
+                            <div>Total Invested: <field name="total_invested" widget="monetary"/></div>
+                            <div>Dividends Received: <field name="dividend_received" widget="monetary"/></div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+
+    <!-- graph view -->
+    <record id="view_shareholder_graph" model="ir.ui.view">
+        <field name="name">shareholder.graph</field>
+        <field name="model">shareholder</field>
+        <field name="arch" type="xml">
+            <graph type="pie">
+                <field name="name" type="row"/>
+                <field name="share_percent" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="action_shareholder" model="ir.actions.act_window">
+        <field name="name">Shareholders</field>
+        <field name="res_model">shareholder</field>
+        <field name="view_mode">list,kanban,form,graph</field>
+    </record>
+</odoo>
