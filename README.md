@@ -67,11 +67,11 @@ The `share_management` module enables tracking of shareholders, share transactio
 
 ## Sample Test Data
 1. **Shareholders**:
-   - John Doe: 0 shares, $0 invested.
-   - Jane Smith: 0 shares, $0 invested.
+   - John Doe: 0 shares, 0 invested.
+   - Jane Smith: 0 shares, 0 invested.
 2. **Transactions**:
-   - John Doe: Buy 100 shares, $10 each, 2025-07-01.
-   - Jane Smith: Sell 50 shares, $12 each, 2025-07-02.
+   - John Doe: Buy 100 shares, 10 each, 2025-07-01.
+   - Jane Smith: Sell 50 shares, 12 each, 2025-07-02.
    - John Doe: Transfer 20 shares to Jane Smith, 2025-07-03.
 3. **Dividends**:
    - John Doe: $500, 2025-07-04.
