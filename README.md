@@ -74,6 +74,6 @@ The `share_management` module enables tracking of shareholders, share transactio
    - Jane Smith: Sell 50 shares, 12 each, 2025-07-02.
    - John Doe: Transfer 20 shares to Jane Smith, 2025-07-03.
 3. **Dividends**:
-   - John Doe: $500, 2025-07-04.
-   - Jane Smith: $300, 2025-07-04.
+   - John Doe: 500, 2025-07-04.
+   - Jane Smith: 300, 2025-07-04.
 4. **Verify**: Check updated shares, percentages, and dashboard.
